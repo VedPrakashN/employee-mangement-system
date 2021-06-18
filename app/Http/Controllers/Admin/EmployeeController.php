@@ -327,7 +327,20 @@ class EmployeeController extends Controller
 
     public function destroy($id)
     {
-
+        if(User::find($id)->exists())
+        {
+            $user = User::find($id);
+            $user->delete();
+            Employee::where('user_id', $user->id)->delete();
+            Experience::where('emp_id', $user->id)->delete();
+            Qualification::where('emp_id', $user->id)->delete();
+            Familymember::where('emp_id', $user->id)->delete();
+            return redirect()->back()->with('status','Employee Deleted');
+        }
+        else
+        {
+            return redirect()->back()->with('status','No Employee Found');
+        }
     }
 
 }
