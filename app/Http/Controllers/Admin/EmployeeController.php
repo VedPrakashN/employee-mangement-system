@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Exports\EmployeeExport;
+use App\Imports\EmployeeImport;
 use App\Models\Employee\Employee;
 use Spatie\Permission\Models\Role;
 use App\Models\Employee\Experience;
 use App\Http\Controllers\Controller;
-use App\Models\Employee\Familymember;
-use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Hash;
+use App\Models\Employee\Familymember;
 use App\Models\Employee\Qualification;
 use Illuminate\Support\Facades\Validator;
 
@@ -341,6 +343,21 @@ class EmployeeController extends Controller
         {
             return redirect()->back()->with('status','No Employee Found');
         }
+    }
+
+    public function importEmployee(Request $request)
+    {
+        $validatedData = $request->validate([
+            'import_file' => 'required|in:csv,xlsx,xls',
+        ]);
+        \Excel::import(new EmployeeImport,$request->import_file);
+
+        return redirect()->back()->with('success', 'Employee file is imported successfully in database.');
+    }
+
+    public function exportExcel($type)
+    {
+        return \Excel::download(new EmployeeExport, 'employee.'.$type);
     }
 
 }

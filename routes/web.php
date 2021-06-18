@@ -37,6 +37,10 @@ Route::prefix('/admin')->middleware(['auth', 'isAdmin', 'role:admin'])->group(fu
     Route::get('qualification-delete/{id}/{emp_id}', [EmployeeController::class, 'deletequalification']);
     Route::get('familymember-delete/{id}/{emp_id}', [EmployeeController::class, 'deletefamilymember']);
 
+
+    Route::post('importExcel', [EmployeeController::class, 'importEmployee'])->name('importExcel');
+    Route::get('exportExcel/{type}', [EmployeeController::class, 'exportExcel'])->name('exportExcel');
+
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     // Route::resource('permissions', PermissionController::class);

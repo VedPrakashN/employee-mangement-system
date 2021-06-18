@@ -12,10 +12,11 @@
                 Employee
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
-            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+            <div class="collapse {{ Request::is('admin/add-employee') ? 'show':'' }} {{ Request::is('admin/view-employee') ? 'show':'' }}"
+                id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="{{ url('admin/add-employee') }}">Add Employee</a>
-                    <a class="nav-link" href="{{ url('admin/view-employee') }}">View Employee</a>
+                    <a class="nav-link {{ Request::is('admin/add-employee') ? 'active':'' }}" href="{{ url('admin/add-employee') }}">Add Employee</a>
+                    <a class="nav-link {{ Request::is('admin/view-employee') ? 'active':'' }}" href="{{ url('admin/view-employee') }}">View Employee</a>
                 </nav>
             </div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

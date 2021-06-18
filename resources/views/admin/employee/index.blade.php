@@ -6,6 +6,42 @@
 
     <div class="row">
         <div class="col-md-12">
+
+            @error('import_file')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+            @enderror
+
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h4>
+                        Import Employee
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form action="{{ route('importExcel') }}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <input type="file" name="import_file" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-primary ">Import File</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <a href="{{ url('admin/exportExcel/xls') }}" class="btn btn-success">Export xls</a>
+                            <a href="{{ url('admin/exportExcel/xlsx') }}" class="btn btn-success">Export xlsx</a>
+                            <a href="{{ url('admin/exportExcel/csv') }}" class="btn btn-success">Export CSV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     <h4>Employee List
