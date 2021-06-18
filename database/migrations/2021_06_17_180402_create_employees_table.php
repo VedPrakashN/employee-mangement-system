@@ -17,6 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('designation');
+            $table->string('salary');
             $table->string('marital_status')->nullable();
             $table->date('dob')->nullable();
             $table->string('address')->nullable();

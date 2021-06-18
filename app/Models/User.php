@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Employee\Employee;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -42,5 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function employee()
+    {
+        return $this->hasMany(Employee::class, 'user_id', 'id');
+    }
 
 }

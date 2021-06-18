@@ -13,6 +13,7 @@
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('admin/css/alertify.min.css') }}" rel="stylesheet">
 
 </head>
 <body class="sb-nav-fixed">
@@ -39,9 +40,17 @@
         </div>
     </div>
 
+    <script src="{{ asset('admin/js/jquery-3.6.0.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap5.bundle.min.js') }}"></script>
-    <script src="{{ asset('admin/js/scripts.js"') }}"></script>
-
+    <script src="{{ asset('admin/js/scripts.js') }}"></script>
+    @yield('scripts')
+    <script src="{{ asset('admin/js/alertify.min.js') }}"></script>
+    <script>
+        @if(session('status'))
+            alertify.set('notifier','position', 'top-right');
+            alertify.success('{{ session('status') }}');
+        @endif
+    </script>
 
 </body>
 </html>
