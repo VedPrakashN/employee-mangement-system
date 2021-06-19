@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv("mysql://bd15ea2fde164b:96fbe337@us-cdbr-east-04.cleardb.com/heroku_96733a051415cbd?reconnect=true"));
+// $url = parse_url(getenv("mysql://bd15ea2fde164b:96fbe337@us-cdbr-east-04.cleardb.com/heroku_96733a051415cbd?reconnect=true"));
 
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
+// $host = $url["host"];
+// $username = $url["user"];
+// $password = $url["pass"];
+// $database = substr($url["path"], 1);
 
 return [
 
@@ -59,10 +59,10 @@ return [
             // 'database' => env('DB_DATABASE', 'forge'),
             // 'username' => env('DB_USERNAME', 'forge'),
             // 'password' => env('DB_PASSWORD', ''),
-            'host'      => $host,
-            'database'  => $database,
-            'username'  => $username,
-            'password'  => $password,
+            'host'      => 'us-cdbr-east-04.cleardb.com',
+            'database'  => 'heroku_96733a051415cbd',
+            'username'  => 'bd15ea2fde164b',
+            'password'  => '96fbe337',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
