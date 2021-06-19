@@ -1,9 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class='col-lg-4 col-lg-offset-4'>
-        <h1><center>401<br>
-        ACCESS DENIED</center></h1>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm bg-info">
+                    <div class="card-body text-center">
+                        <h1>401</h1>
+                        <hr>
+                        <h1>ACCESS DENIED</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

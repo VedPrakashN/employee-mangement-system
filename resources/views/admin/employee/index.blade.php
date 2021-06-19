@@ -11,6 +11,15 @@
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class="card mb-3">
                 <div class="card-header">
@@ -59,6 +68,7 @@
                                 <th>Designation</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <th>Biodata</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,6 +87,9 @@
                                 </td>
                                 <td>
                                     <a href="{{ url('admin/delete-employee/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                                <td>
+                                    <a href="{{ url('admin/view-employee/'.$item->id) }}" class="btn btn-danger btn-sm">View</a>
                                 </td>
                             </tr>
                             @endforeach

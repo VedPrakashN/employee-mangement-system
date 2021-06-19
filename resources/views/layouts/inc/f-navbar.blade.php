@@ -11,9 +11,6 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{{ url('/') }}">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">About</a>
-            </li>
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
@@ -32,7 +29,13 @@
                         {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        @role('employee')
+                        <li>
+                            <a class="dropdown-item" href="{{ url('employee/profile') }}">
+                                My Profile
+                            </a>
+                        </li>
+                        @endrole
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -48,7 +51,6 @@
                 </li>
             @endguest
         </ul>
-
       </div>
     </div>
 </nav>

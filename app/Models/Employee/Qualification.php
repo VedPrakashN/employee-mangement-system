@@ -16,4 +16,5 @@ class Qualification extends Model
         'year_passing',
         'percentage',
     ];
+    
 }

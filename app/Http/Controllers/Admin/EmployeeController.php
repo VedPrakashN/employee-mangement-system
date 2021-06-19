@@ -16,6 +16,8 @@ use App\Models\Employee\Familymember;
 use App\Models\Employee\Qualification;
 use Illuminate\Support\Facades\Validator;
 
+use PDF;
+
 class EmployeeController extends Controller
 {
     public function index()
@@ -194,7 +196,7 @@ class EmployeeController extends Controller
                     {
                         $user_id = $id;
                         $member_name = $request->input('member_name');
-                        foreach ($institute as $key=>$items)
+                        foreach ($member_name as $key => $items)
                         {
                             $updateFamilymember = Familymember::where('id', $request->input('familymember_id')[$key])
                             ->where('emp_id', $user_id)
@@ -205,16 +207,14 @@ class EmployeeController extends Controller
                                 'phone'=>$request->input('member_phone')[$key],
                             ]);
                         }
+
                     }
                     else
                     {
                         return redirect()->back()->with('status','All Family Member Fields are mandetory.');
                     }
                 }
-
                 return redirect()->back()->with('status','All Employee Data Updated.');
-
-
             }
         }
         else
@@ -348,7 +348,7 @@ class EmployeeController extends Controller
     public function importEmployee(Request $request)
     {
         $validatedData = $request->validate([
-            'import_file' => 'required|in:csv,xlsx,xls',
+            'import_file' => 'required',
         ]);
         \Excel::import(new EmployeeImport,$request->import_file);
 
@@ -358,6 +358,23 @@ class EmployeeController extends Controller
     public function exportExcel($type)
     {
         return \Excel::download(new EmployeeExport, 'employee.'.$type);
+    }
+
+    public function viewBiodata($id)
+    {
+        $user = User::where('id',$id)->role('employee')->first();
+        return view('admin.employee.viewbiodata', compact('user'));
+    }
+
+    public function biodataPDFdownload($id)
+    {
+
+        $user = User::where('id',$id)->role('employee')->first();
+        $data = [
+            'user' => $user,
+        ];
+        $pdf = PDF::loadView('admin.employee.biodataPDF', $data);
+        return $pdf->download('employee-biodata.pdf');
     }
 
 }

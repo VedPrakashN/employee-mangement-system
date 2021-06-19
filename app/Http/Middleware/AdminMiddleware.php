@@ -25,6 +25,7 @@ class AdminMiddleware
             if (!Auth::user()->hasPermissionTo('Admin Roles & Permissions')) //If user does //not have this permission
             {
                 abort('401');
+                // return redirect()->to('errors.401')->with('status','ACCESS DENIED');
             }
         }
 
