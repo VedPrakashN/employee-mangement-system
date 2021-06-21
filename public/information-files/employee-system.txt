@@ -1,0 +1,116 @@
+1. Install Laravel
+	-Setup the Files
+
+2. Add Authentication in Laravel
+	composer require larave/ui
+	php artisan ui:auth
+
+3. Add Bootstrap 5 for UI.
+
+4. Setup Spatie Roles and Permission
+	install
+	setuped with prefex as /admin/
+
+	4.1: Add user, then roles
+	Artisan Command:
+		
+		1st add permission
+		2nd add roles
+
+5. CRUD Employee with employee_Details,experience,Qualification, FamilyMembers.
+	
+	in user table
+		1. name
+		2. email
+		3. password
+		4. c_password
+
+	in employee table
+		1.user_id
+		1.designation
+		2.marital_status
+		3.dob
+		4.address
+		5.phone
+
+
+	previous_experience
+		1. emp_id
+		2. Company 
+		3. designation
+		4. Joining
+		5. Leaving
+		6. CTC
+
+	education_qualifications
+		1. empi_id
+		2. institute
+		3. course
+		3. year_passing
+		4. percentage
+
+	family_members
+		1. emp_id
+		2. name
+		3. relation
+		4. phone
+
+	-- Add Employee - (While adding assigned a role as Employee)
+	-- Update Data on ONE BUTTON (all 4 tables updating)
+	-- experience, qualification, members: Delete data singly.
+	-- Delete Employee - (Remove all data from 4 tables with ROLES)
+
+6. Import & Export Data of Employee by EXCEL (maatwebsite/laravel-excel - PACKAGE)
+	with Validation
+	
+
+7. Export a PDF Biodata of en employee with BASIC Details (DOMPDF Package)
+	path for : view employee -> biodata btn view -> Download PDF
+	
+8. Employee View Profile with details only and can update
+	
+	
+Admin Login: 
+	admin@gmail.com
+	12345678
+
+Employee Login:
+
+	emp1@gmail.com
+	12345678
+
+	emp2@gmail.com
+	12345678
+
+User Login
+
+	user1@gmail.com
+	12345678
+
+	user2@gmail.com
+	12345678
+
+
+
+
+https://mattstauffer.com/blog/laravel-on-heroku-using-a-mysql-database/
+
+mysql://bd15ea2fde164b:96fbe337@us-cdbr-east-04.cleardb.com/heroku_96733a051415cbd?reconnect=true
+
+Server Address: us-cdbr-east-04.cleardb.com
+username: bd15ea2fde164b
+password: 96fbe337
+Initial Database/Keyspace: heroku_96733a051415cbd
+
+
+
+
+
+
+
+
+
+
+
+
+
