@@ -93,20 +93,6 @@ User Login
 
 
 
-https://mattstauffer.com/blog/laravel-on-heroku-using-a-mysql-database/
-
-mysql://bd15ea2fde164b:96fbe337@us-cdbr-east-04.cleardb.com/heroku_96733a051415cbd?reconnect=true
-
-Server Address: us-cdbr-east-04.cleardb.com
-username: bd15ea2fde164b
-password: 96fbe337
-Initial Database/Keyspace: heroku_96733a051415cbd
-
-
-
-
-
-
 
 
 
