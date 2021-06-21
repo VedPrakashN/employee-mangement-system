@@ -52,10 +52,6 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            // 'host'      => 'us-cdbr-east-04.cleardb.com', //Heroku
-            // 'database'  => 'heroku_96733a051415cbd', //Heroku
-            // 'username'  => 'bd15ea2fde164b', //Heroku
-            // 'password'  => '96fbe337', //Heroku
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
