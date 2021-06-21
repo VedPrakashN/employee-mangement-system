@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://localhost'),
+    'url' => env('APP_URL', 'https://enigmatic-savannah-54968.herokuapp.com/'),
 
     'asset_url' => env('ASSET_URL', null),
 
